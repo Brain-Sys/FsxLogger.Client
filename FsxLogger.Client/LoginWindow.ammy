@@ -1,0 +1,28 @@
+﻿using FsxLogger.ViewModels.Portable
+
+Window "FsxLogger.Client.LoginWindow" { Width: 320, Height: 240, MinWidth: 320, MinHeight: 240
+WindowStartupLocation: CenterScreen, WindowStyle: ToolWindow, Title: "Login"
+FocusManager.FocusedElement: bind from "focus"
+
+Resources: [
+	LoginViewModel Key="vm" { }
+	Style { TargetType: "TextBlock", #Setter("FontSize", 24), #Setter("Margin", 4) }
+	Style { TargetType: "TextBox", #Setter("FontSize", 24), #Setter("Margin", 4) }
+	Style { TargetType: "PasswordBox", #Setter("FontSize", 24), #Setter("Margin", 4) }
+	Style { TargetType: "Button", #Setter("FontSize", 16), #Setter("Margin", 4), #Setter("Padding", "12 4") }
+]
+Grid
+	{
+		DataContext: resource "vm", #TwoColumns(120), #ThreeRows("Auto", "Auto"),
+		TextBlock { #Cell(0, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: "Username" }
+		TextBlock { #Cell(1, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: "Password" }
+		
+		TextBox { #Cell(0, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: bind Username }
+		PasswordBox { #Cell(1, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Name: "focus" }
+
+		@StackPanelHorizontal() { #Cell(2, 1), VerticalAlignment: Bottom, HorizontalAlignment: Right, Margin: 4
+			Button { Content: "Login" }
+			Button { Content: "Cancel" }
+		}
+	}
+}
