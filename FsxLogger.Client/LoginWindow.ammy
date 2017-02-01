@@ -13,16 +13,16 @@ Resources: [
 ]
 Grid
 	{
-		DataContext: resource "vm", #TwoColumns(120), #ThreeRows("Auto", "Auto"),
+		DataContext: resource "vm", #TwoColumns(120), #ThreeRows("Auto", "Auto"), Margin: "8"
 		TextBlock { #Cell(0, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: "Username" }
 		TextBlock { #Cell(1, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: "Password" }
 		
-		TextBox { #Cell(0, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: bind Username }
+		TextBox { #Cell(0, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: bind Username, Padding:"4" }
 		PasswordBox { #Cell(1, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Name: "focus" }
 
 		@StackPanelHorizontal() { #Cell(2, 1), VerticalAlignment: Bottom, HorizontalAlignment: Right, Margin: 4
-			Button { Content: "Login" }
-			Button { Content: "Cancel" }
+			Button { Content: "Login", Command: bind LoginCommand }
+			Button { Content: "Cancel", Command: bind CancelLoginCommand }
 		}
 	}
 }

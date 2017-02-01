@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FsxLogger.ViewModels.Messages;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Linq;
 
 namespace FsxLogger.ViewModels.Portable
@@ -23,10 +26,35 @@ namespace FsxLogger.ViewModels.Portable
             }
         }
 
+        private bool loginOK;
+        public bool LoginOK
+        {
+            get { return loginOK; }
+            set { loginOK = value;
+                base.RaisePropertyChanged();
+            }
+        }
+
+        public RelayCommand LoginCommand { get; set; }
+        public RelayCommand CancelLoginCommand { get; set; }
+
         public LoginViewModel()
         {
+            this.LoginCommand = new RelayCommand(LoginCommandExecute);
+            this.CancelLoginCommand = new RelayCommand(CancelLoginCommandExecute);
+
             this.Username = "igor";
             this.Password = "pwd";
+        }
+
+        private void CancelLoginCommandExecute()
+        {
+            Messenger.Default.Send<CloseApplicationMessage>(CloseApplicationMessage.Empty);
+        }
+
+        private void LoginCommandExecute()
+        {
+            this.LoginOK = (this.Username == "user" && this.Password == "pwd");
         }
     }
 }
