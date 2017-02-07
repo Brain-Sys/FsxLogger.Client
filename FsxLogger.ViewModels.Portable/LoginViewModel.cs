@@ -12,7 +12,9 @@ namespace FsxLogger.ViewModels.Portable
         public string Username
         {
             get { return username; }
-            set { username = value;
+            set
+            {
+                username = value;
                 base.RaisePropertyChanged();
             }
         }
@@ -21,7 +23,9 @@ namespace FsxLogger.ViewModels.Portable
         public string Password
         {
             get { return password; }
-            set { password = value;
+            set
+            {
+                password = value;
                 base.RaisePropertyChanged();
             }
         }
@@ -30,7 +34,9 @@ namespace FsxLogger.ViewModels.Portable
         public bool LoginOK
         {
             get { return loginOK; }
-            set { loginOK = value;
+            set
+            {
+                loginOK = value;
                 base.RaisePropertyChanged();
             }
         }
@@ -55,6 +61,22 @@ namespace FsxLogger.ViewModels.Portable
         private void LoginCommandExecute()
         {
             this.LoginOK = (this.Username == "user" && this.Password == "pwd");
+
+            var msg = new ShowDialogMessage();
+
+            if (this.LoginOK == true)
+            {
+                msg.Title = "Login OK!";
+                msg.Content = "Login successful!";
+                msg.Icon = "Information";
+            }
+            else
+            {
+                msg.Title = "Login failed!";
+                msg.Content = "Invalid credentials!";
+            }
+
+            Messenger.Default.Send<ShowDialogMessage>(msg);
         }
     }
 }
