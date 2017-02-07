@@ -1,4 +1,4 @@
-﻿using FsxLogger.ViewModels.Portable
+﻿using FsxLogger.ViewModels.Wpf
 
 Window "FsxLogger.Client.LoginWindow" { Width: 320, Height: 240, MinWidth: 320, MinHeight: 240
 WindowStartupLocation: CenterScreen, WindowStyle: ToolWindow, Title: "Login"

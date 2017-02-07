@@ -1,4 +1,4 @@
-<Window x:Class="FsxLogger.Client.LoginWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:FsxLogger.ViewModels.Portable;assembly=FsxLogger.ViewModels.Portable" xmlns:ns1="clr-namespace:AmmySidekick;assembly=AmmySidekick" Width="320" Height="240" MinWidth="320" MinHeight="240" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Title="Login" ns1:Ammy.Register="/FsxLogger.Client;component/LoginWindow.g.xaml">
+<Window x:Class="FsxLogger.Client.LoginWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:FsxLogger.ViewModels.Wpf;assembly=FsxLogger.ViewModels.Wpf" xmlns:ns1="clr-namespace:AmmySidekick;assembly=AmmySidekick" Width="320" Height="240" MinWidth="320" MinHeight="240" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Title="Login" ns1:Ammy.Register="/FsxLogger.Client;component/LoginWindow.g.xaml">
   <FocusManager.FocusedElement>
     <Binding ElementName="focus"/>
   </FocusManager.FocusedElement>

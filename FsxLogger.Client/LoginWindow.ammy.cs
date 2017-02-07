@@ -1,4 +1,4 @@
-﻿using FsxLogger.ViewModels.Portable;
+﻿using FsxLogger.ViewModels.Wpf;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,8 +16,14 @@ namespace FsxLogger.Client
 
         private void changed(object sender, RoutedEventArgs e)
         {
+            this.ViewModel.Password.Clear();
+
             PasswordBox pb = (PasswordBox)sender;
-            this.ViewModel.Password = pb.Password;
+
+            foreach (char c in pb.Password)
+            {
+                this.ViewModel.Password.AppendChar(c);
+            }
         }
     }
 }
