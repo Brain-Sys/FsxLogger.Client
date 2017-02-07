@@ -2,7 +2,7 @@
 
 Window "FsxLogger.Client.LoginWindow" { Width: 320, Height: 240, MinWidth: 320, MinHeight: 240
 WindowStartupLocation: CenterScreen, WindowStyle: ToolWindow, Title: "Login"
-FocusManager.FocusedElement: bind from "focus"
+FocusManager.FocusedElement: bind from "focus",
 
 Resources: [
 	LoginViewModel Key="vm" { }
@@ -10,15 +10,19 @@ Resources: [
 	Style { TargetType: "TextBox", #Setter("FontSize", 24), #Setter("Margin", 4) }
 	Style { TargetType: "PasswordBox", #Setter("FontSize", 24), #Setter("Margin", 4) }
 	Style { TargetType: "Button", #Setter("FontSize", 16), #Setter("Margin", 4), #Setter("Padding", "12 4") }
-]
+],
+InputBindings: [
+	KeyBinding { Key: "Enter", Command: bind LoginCommand from $resource vm }
+	KeyBinding { Key: "Esc", Command: bind CancelLoginCommand from $resource vm }
+],
 Grid
 	{
 		DataContext: resource "vm", #TwoColumns(120), #ThreeRows("Auto", "Auto"), Margin: "8"
 		TextBlock { #Cell(0, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: "Username" }
 		TextBlock { #Cell(1, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: "Password" }
 		
-		TextBox { #Cell(0, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: bind Username, Padding:"4" }
-		PasswordBox { #Cell(1, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Name: "focus" }
+		TextBox { #Cell(0, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: bind Username, Padding:"4", Name:"focus" }
+		PasswordBox { #Cell(1, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, PasswordChanged: "changed" }
 
 		@StackPanelHorizontal() { #Cell(2, 1), VerticalAlignment: Bottom, HorizontalAlignment: Right, Margin: 4
 			Button { Content: "Login", Command: bind LoginCommand }

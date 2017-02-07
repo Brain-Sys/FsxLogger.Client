@@ -50,7 +50,7 @@ namespace FsxLogger.ViewModels.Portable
             this.CancelLoginCommand = new RelayCommand(CancelLoginCommandExecute);
 
             this.Username = "igor";
-            this.Password = "pwd";
+            this.Password = string.Empty;
         }
 
         private void CancelLoginCommandExecute()

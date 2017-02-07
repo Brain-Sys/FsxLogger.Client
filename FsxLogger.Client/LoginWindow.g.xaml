@@ -22,15 +22,27 @@
       <Setter Property="Padding" Value="12 4"/>
     </Style>
   </Window.Resources>
+  <Window.InputBindings>
+    <KeyBinding Key="Enter">
+      <KeyBinding.Command>
+        <Binding Path="LoginCommand" Source="{StaticResource vm}"/>
+      </KeyBinding.Command>
+    </KeyBinding>
+    <KeyBinding Key="Esc">
+      <KeyBinding.Command>
+        <Binding Path="CancelLoginCommand" Source="{StaticResource vm}"/>
+      </KeyBinding.Command>
+    </KeyBinding>
+  </Window.InputBindings>
   <Grid DataContext="{StaticResource vm}" Margin="8">
     <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="Username"/>
     <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="Password"/>
-    <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Padding="4">
+    <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Padding="4" Name="focus">
       <TextBox.Text>
         <Binding Path="Username"/>
       </TextBox.Text>
     </TextBox>
-    <PasswordBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="focus"/>
+    <PasswordBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" PasswordChanged="changed"/>
     <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="4">
       <Button Content="Login">
         <Button.Command>
