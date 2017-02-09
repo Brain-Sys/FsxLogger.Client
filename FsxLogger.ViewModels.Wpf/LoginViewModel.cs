@@ -47,14 +47,14 @@ namespace FsxLogger.ViewModels.Wpf
 
             if (this.LoginOK == true)
             {
-                msg.Title = "Login OK!";
-                msg.Content = "Login successful!";
+                msg.Title = Vocabulary.LoginSuccessfulTitle;
+                msg.Content = Vocabulary.LoginSuccessfulText;
                 msg.Icon = "Information";
             }
             else
             {
-                msg.Title = "Login failed!";
-                msg.Content = "Invalid credentials!";
+                msg.Title = Vocabulary.LoginFailedTitle;
+                msg.Content = Vocabulary.LoginFailedText;
             }
 
             Messenger.Default.Send<ShowDialogMessage>(msg);

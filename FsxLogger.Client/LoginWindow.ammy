@@ -2,8 +2,8 @@
 using WPFLocalizeExtension;
 using WPFLocalizeExtension.Extensions;
 
-Window "FsxLogger.Client.LoginWindow" { Width: 320, Height: 240, MinWidth: 320, MinHeight: 240
-WindowStartupLocation: CenterScreen, WindowStyle: ToolWindow, Title: "Login"
+Window "FsxLogger.Client.LoginWindow" { Width: 380, Height: 240, MinWidth: 380, MinHeight: 240
+WindowStartupLocation: CenterScreen, WindowStyle: ToolWindow, Title: LocExtension { "FsxLogger.Translations:Vocabulary:LoginTitle" }
 FocusManager.FocusedElement: bind from "focus",
 
 Resources: [
@@ -20,9 +20,9 @@ InputBindings: [
 ],
 Grid
 	{
-		DataContext: resource "vm", #TwoColumns(120), #ThreeRows("Auto", "Auto"), Margin: "8"
-		TextBlock { #Cell(0, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: "Username" }
-		TextBlock { #Cell(1, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: "Password" }
+		DataContext: resource "vm", #TwoColumns(160, "*"), #ThreeRows("Auto", "Auto"), Margin: "8"
+		TextBlock { #Cell(0, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: LocExtension { "FsxLogger.Translations:Vocabulary:UsernameText" } }
+		TextBlock { #Cell(1, 0), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: LocExtension { "FsxLogger.Translations:Vocabulary:PasswordText" } }
 		
 		TextBox { #Cell(0, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: bind Username, Padding:"4", Name:"focus" }
 		PasswordBox { #Cell(1, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, PasswordChanged: "changed" }

@@ -123,4 +123,13 @@
   <data name="LoginText" xml:space="preserve">
     <value>Accedi</value>
   </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Accedi al tuo account</value>
+  </data>
+  <data name="PasswordText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="UsernameText" xml:space="preserve">
+    <value>Nome utente</value>
+  </data>
 </root>

@@ -70,11 +70,74 @@ namespace FsxLogger.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid credentials!.
+        /// </summary>
+        public static string LoginFailedText {
+            get {
+                return ResourceManager.GetString("LoginFailedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login failed!.
+        /// </summary>
+        public static string LoginFailedTitle {
+            get {
+                return ResourceManager.GetString("LoginFailedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login successful!.
+        /// </summary>
+        public static string LoginSuccessfulText {
+            get {
+                return ResourceManager.GetString("LoginSuccessfulText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login OK!.
+        /// </summary>
+        public static string LoginSuccessfulTitle {
+            get {
+                return ResourceManager.GetString("LoginSuccessfulTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string LoginText {
             get {
                 return ResourceManager.GetString("LoginText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login to your account.
+        /// </summary>
+        public static string LoginTitle {
+            get {
+                return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string PasswordText {
+            get {
+                return ResourceManager.GetString("PasswordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string UsernameText {
+            get {
+                return ResourceManager.GetString("UsernameText", resourceCulture);
             }
         }
     }
