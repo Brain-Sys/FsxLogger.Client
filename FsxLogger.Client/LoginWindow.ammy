@@ -1,4 +1,6 @@
 ﻿using FsxLogger.ViewModels.Wpf
+using WPFLocalizeExtension;
+using WPFLocalizeExtension.Extensions;
 
 Window "FsxLogger.Client.LoginWindow" { Width: 320, Height: 240, MinWidth: 320, MinHeight: 240
 WindowStartupLocation: CenterScreen, WindowStyle: ToolWindow, Title: "Login"
@@ -14,6 +16,7 @@ Resources: [
 InputBindings: [
 	KeyBinding { Key: "Enter", Command: bind LoginCommand from $resource vm }
 	KeyBinding { Key: "Esc", Command: bind CancelLoginCommand from $resource vm }
+	KeyBinding { Key: "L", Modifiers: "Alt", Command: bind ChangeLanguageCommand from $resource vm }
 ],
 Grid
 	{
@@ -24,9 +27,9 @@ Grid
 		TextBox { #Cell(0, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, Text: bind Username, Padding:"4", Name:"focus" }
 		PasswordBox { #Cell(1, 1), VerticalAlignment: Center, HorizontalAlignment: Stretch, PasswordChanged: "changed" }
 
-		@StackPanelHorizontal() { #Cell(2, 1), VerticalAlignment: Bottom, HorizontalAlignment: Right, Margin: 4
-			Button { Content: "Login", Command: bind LoginCommand }
-			Button { Content: "Cancel", Command: bind CancelLoginCommand }
+		@StackPanelHorizontal() { #Cell(2, 0, 1, 2), VerticalAlignment: Bottom, HorizontalAlignment: Right, Margin: 4
+			Button { Content: LocExtension { "FsxLogger.Translations:Vocabulary:LoginText" }, Command: bind LoginCommand }
+			Button { Content: LocExtension { "FsxLogger.Translations:Vocabulary:CancelLoginText" }, Command: bind CancelLoginCommand }
 		}
 	}
 }

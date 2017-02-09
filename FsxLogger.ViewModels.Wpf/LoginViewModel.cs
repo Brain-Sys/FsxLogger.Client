@@ -1,4 +1,6 @@
-﻿using FsxLogger.ViewModels.Messages;
+﻿using FsxLogger.Translations;
+using FsxLogger.ViewModels.Messages;
+using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using WPFLocalizeExtension.Engine;
 
 namespace FsxLogger.ViewModels.Wpf
 {
@@ -21,9 +24,18 @@ namespace FsxLogger.ViewModels.Wpf
             }
         }
 
+        public RelayCommand ChangeLanguageCommand { get; set; }
+
         public LoginViewModel()
         {
+            this.ChangeLanguageCommand = new RelayCommand(changeLanguageCommandExecute);
+
             this.Password = new SecureString();
+        }
+
+        private void changeLanguageCommandExecute()
+        {
+            new TranslationsManager().ChangeLanguage();
         }
 
         protected override void LoginCommandExecute()

@@ -75,6 +75,14 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFLocalizeExtension, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfLocalizeExtension.2.3.2\lib\net35\WPFLocalizeExtension.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions, Version=1.2.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XAMLMarkupExtensions.1.2.1.3\lib\net40\XAMLMarkupExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -120,6 +128,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FsxLogger.Translations\FsxLogger.Translations.csproj">
+      <Project>{4137d698-f2a8-4b6c-a592-2e5fabbaf689}</Project>
+      <Name>FsxLogger.Translations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FsxLogger.ViewModels.Messages\FsxLogger.ViewModels.Messages.csproj">
       <Project>{d4fbb952-21b3-42ad-849e-0067f4cbd812}</Project>
       <Name>FsxLogger.ViewModels.Messages</Name>
